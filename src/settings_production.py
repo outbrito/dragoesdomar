@@ -10,22 +10,15 @@ LOCAL = False
 DEBUG = False
 TEMPLATE_DEBUG = DEBUG
 
-HOST = 'http://novocasatudo.sodateste.com.br'
-
-JS_DIR = STATIC_URL + 'site/js/'
-
-CONTACTS = ()
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'soda_novocasatudo',
-        'USER': 'soda_novocasatud',
-        'PASSWORD': 's0d4!SODA@',
+        'NAME': 'dragoesdomar',
+        'USER': 'root',
+        'PASSWORD': 'dragoes@DR@G035!',
         'HOST': '',
         'PORT': '',
     }
 }
 
-ECOMMERCE_ADMINS = ('thiago.paiva@sodavirtual.com.br', 'casatudo@casatudo.com.br',)
-ECOMMERCE_CORREIOS_CEP_ORIGEM = '58028050'
+ALLOWED_HOSTS = ['127.0.0.1', '10.1.0.23']
