@@ -1,0 +1,75 @@
+﻿{% extends 'base.html' %}
+{% load static thumbnail tagging_tags %}
+
+	{% block content %}
+    <!-- conteúdo/begin -->
+    <div id="internas">
+        <div id="conteudo-mg">
+
+            <div id="migalha">
+                <span>Você está em:</span> Notícias
+                <a name="content">&nbsp;</a>
+            </div>
+
+            <div id="controle">&nbsp;</div>
+            <br class="clr" />
+
+            <div id="coluna1">
+                <div id="coluna1-mg">
+
+                    <div id="submenu">
+                    <a href="{% url 'noticias' %}" title="Notícias"  class="nivel1">Notícias</a>
+                    </div>
+
+                </div>
+            </div>
+            <div id="coluna2">
+
+	            <h2>Notícias</h2>
+				
+				{% with destaques.0 as artigo %}
+	            <div class="coluna2-interna">
+	                <span class="noticia-data">{{ artigo.data|date:"DATETIME_FORMAT"}}</span><br />
+	                <div class="noticia-titulo">{{ artigo }}</div>
+	                <div class="noticia-imagem"><a href="{{ artigo.get_absolute_url }}" title="{{ artigo }}"><img src="{% thumbnail artigo.imagem 287x170 %}" width="287" height="170" alt="{{ artigo }}" /></a></div>
+	                <div class="noticia-descricao"><a href="{{ artigo.get_absolute_url }}" title="{{ artigo }}">{{ artigo }} </a></div>
+	            </div>
+	            {% endwith %}
+	            <div class="coluna2-interna-div">&nbsp;</div>
+	            {% with destaques.1 as artigo %}
+	            <div class="coluna2-interna">
+	                <span class="noticia-data">{{ artigo.data|date:"DATETIME_FORMAT"}}</span><br />
+	                <div class="noticia-titulo">{{ artigo }}</div>
+	                <div class="noticia-imagem"><a href="{{ artigo.get_absolute_url }}" title="{{ artigo }}"><img src="{% thumbnail artigo.imagem 287x170 %}" width="287" height="170" alt="{{ artigo }}" /></a></div>
+	                <div class="noticia-descricao"><a href="{{ artigo.get_absolute_url }}" title="{{ artigo }}">{{ artigo }} </a></div>
+	            </div>
+	            {% endwith %}
+	            <br class="clr" />
+				
+	            <div class="hr">&nbsp;</div>
+	
+				{% for artigo in artigos %}	
+	        	<div class="noticia">
+	        		<span class="noticia-data">{{ artigo.data|date:"DATETIME_FORMAT"}} {% tags_for_object artigo as tag_list %}{% for tag in tag_list %}<span>{{ tag }}</span> {% endfor %}</span><br />
+	        		<a href="{{ artigo.get_absolute_url }}" title="{{ artigo }}" class="noticia-titulo">{{ artigo }}</a><br />
+	        		<a href="{{ artigo.get_absolute_url }}" title="{{ artigo }}"></a>
+	        	</div>
+	        	<div class="hr">&nbsp;</div>
+	        	{% endfor %}
+
+            </div>
+            <div id="coluna3">
+                <div id="coluna3-mg">
+                    <div class="banner-square"><a href="#" title="Título do Banner"><img src="{% static 'images/fake/square.jpg' %}" width="120" height="90" alt="Título do Banner" title="Título do Banner" /></a></div>
+                    <div class="banner-square"><a href="#" title="Título do Banner"><img src="{% static 'images/fake/square.jpg' %}" width="120" height="90" alt="Título do Banner" title="Título do Banner" /></a></div>
+                    <div class="banner-square"><a href="#" title="Título do Banner"><img src="{% static 'images/fake/square.jpg' %}" width="120" height="90" alt="Título do Banner" title="Título do Banner" /></a></div>
+                </div>
+            </div>
+
+            <br class="clr" />
+
+        </div>
+    </div>
+
+    <!-- conteúdo/end -->
+    {% endblock %}

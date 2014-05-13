@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load static %}
+
+	{% block content %}
+    <!-- conteúdo/begin -->
+    <div id="internas">
+        <div id="conteudo-mg">
+
+            <div id="migalha">
+                <span>Você está em:</span> <a href="{% url 'home' %}" title="Página Inicial" accesskey="H">Página Inicial</a> Contato                <a name="content">&nbsp;</a>
+            </div>
+
+            <div id="controle">&nbsp;</div>
+            <br class="clr" />
+
+            <div id="coluna1">
+                <div id="coluna1-mg">
+
+                    <div id="submenu">
+                    <a href="{% url 'contato' %}" title="Contato"  class="nivel1">Contato</a>
+                    <div class="hr">&nbsp;</div>
+                    <a href="mapa_de_localizacao.html" title="Mapa de Localização"  class="nivel1">Mapa de Localização</a>
+
+                    </div>
+                </div>
+            </div>
+            <div id="coluna2">
+
+              <h2>Contato</h2>
+
+              <p>Agradecemos o contato e informamos que a sua mensagem foi enviada com sucesso.</p>
+              <p>Entraremos em contato tão logo seja possível.</p>
+
+            </div>
+            <div id="coluna3">
+                <div id="coluna3-mg">
+                    <div class="banner-square"><a href="#" title="Título do Banner"><img src="{% static 'images/fake/square.jpg' %}" width="120" height="90" alt="Título do Banner" title="Título do Banner" /></a></div>
+                    <div class="banner-square"><a href="#" title="Título do Banner"><img src="{% static 'images/fake/square.jpg' %}" width="120" height="90" alt="Título do Banner" title="Título do Banner" /></a></div>
+                    <div class="banner-square"><a href="#" title="Título do Banner"><img src="{% static 'images/fake/square.jpg' %}" width="120" height="90" alt="Título do Banner" title="Título do Banner" /></a></div>
+                </div>
+            </div>
+
+            <br class="clr" />
+
+        </div>
+    </div>
+    <!-- conteúdo/end -->
+    {% endblock %}

@@ -1,0 +1,173 @@
+{% extends 'base.html' %}
+{% load static thumbnail %}
+
+	{% block content %}
+    <!-- destaques/begin -->
+    <div id="chamadas">
+        <div id="chamadas-box">
+            {% with destaques.0 as destaque %}
+            <div id="chamadas-box-esq"><a href="{{ destaque.get_absolute_url }}" title="{{ destaque.titulo }}"><img src="{% thumbnail destaque.imagem 758x254 crop=smart %}" style="width: 758px;height: 254px;" alt="{{ destaque.titulo }}" title="{{ destaque.titulo }}"/></a><div id="legenda"><div id="legenda-mg">{{ destaque.titulo }}</div></div></div>
+            {% endwith %}
+            <div id="chamadas-box-dir">
+                {% with destaques.0 as destaque %}
+                <div class="chamadas-box-botao-ativo">
+                    <div class="chamadas-box-link">
+                        <a href="{% thumbnail destaque.imagem 758x254 crop=smart %}" rel="{{ destaque.get_absolute_url }}" title="{{ destaque.titulo }}">{{ destaque.titulo }}</a>
+                    </div>
+                    <div class="chamadas-box-img">
+                        <a href="{% thumbnail destaque.imagem 758x254 crop=smart %}" rel="{{ destaque.get_absolute_url }}" title="{{ destaque.titulo }}"><img src="{% thumbnail destaque.imagem 60x40 crop=scale %}" width="60" height="40" alt="{{ destaque.titulo }}" title="{{ destaque.titulo }}" /></a>
+                    </div>
+                    <br class="clr" />
+                </div>
+                {% endwith %}
+                {% with destaques.1 as destaque %}
+                <div class="chamadas-box-botao">
+                    <div class="chamadas-box-link">
+                        <a href="{% thumbnail destaque.imagem 758x254 crop=smart %}" rel="{{ destaque.get_absolute_url }}" title="{{ destaque.titulo }}">{{ destaque.titulo }}</a>
+                    </div>
+                    <div class="chamadas-box-img">
+                        <a href="{% thumbnail destaque.imagem 758x254 crop=smart %}" rel="{{ destaque.get_absolute_url }}" title="{{ destaque.titulo }}"><img src="{% thumbnail destaque.imagem 60x40 crop=scale %}" width="60" height="40" alt="{{ destaque.titulo }}" title="{{ destaque.titulo }}" /></a>
+                    </div>
+                    <br class="clr" />
+                </div>
+                {% endwith %}
+                {% with destaques.2 as destaque %}
+                <div class="chamadas-box-botao">
+                    <div class="chamadas-box-link">
+                        <a href="{% thumbnail destaque.imagem 758x254 crop=smart %}" rel="{{ destaque.get_absolute_url }}" title="{{ destaque.titulo }}">{{ destaque.titulo }}</a>
+                    </div>
+                    <div class="chamadas-box-img">
+                        <a href="{% thumbnail destaque.imagem 758x254 crop=smart %}" rel="{{ destaque.get_absolute_url }}" title="{{ destaque.titulo }}"><img src="{% thumbnail destaque.imagem 60x40 crop=scale %}" width="60" height="40" alt="{{ destaque.titulo }}" title="{{ destaque.titulo }}" /></a>
+                    </div>
+                    <br class="clr" />
+                </div>
+                {% endwith %}
+                {% with destaques.3 as destaque %}
+                <div class="chamadas-box-botao">
+                    <div class="chamadas-box-link">
+                        <a href="{% thumbnail destaque.imagem 758x254 crop=smart %}" rel="{{ destaque.get_absolute_url }}" title="{{ destaque.titulo }}">{{ destaque.titulo }}</a>
+                    </div>
+                    <div class="chamadas-box-img">
+                        <a href="{% thumbnail destaque.imagem 758x254 crop=smart %}" rel="{{ destaque.get_absolute_url }}" title="{{ destaque.titulo }}"><img src="{% thumbnail destaque.imagem 60x40 crop=scale %}" width="60" height="40" alt="{{ destaque.titulo }}" title="{{ destaque.titulo }}" /></a>
+                    </div>
+                    <br class="clr" />
+                </div>
+                {% endwith %}
+                {% with destaques.4 as destaque %}
+                <div class="chamadas-box-botao">
+                    <div class="chamadas-box-link">
+                        <a href="{% thumbnail destaque.imagem 758x254 crop=smart %}" rel="{{ destaque.get_absolute_url }}" title="{{ destaque.titulo }}">{{ destaque.titulo }}</a>
+                    </div>
+                    <div class="chamadas-box-img">
+                        <a href="{% thumbnail destaque.imagem 758x254 crop=smart %}" rel="{{ destaque.get_absolute_url }}" title="{{ destaque.titulo }}"><img src="{% thumbnail destaque.imagem 60x40 crop=scale %}" width="60" height="40" alt="{{ destaque.titulo }}" title="{{ destaque.titulo }}" /></a>
+                    </div>
+                    <br class="clr" />
+                </div>
+                {% endwith %}
+            </div>
+            <br class="clr" />
+        </div>
+    </div>
+    <!-- destaques/end -->
+
+    <!-- conteúdo/begin -->
+    <div id="home">
+        <div id="conteudo-mg">
+            <div><a name="content">&nbsp;</a></div>
+
+            <div id="coluna1">
+
+                <h2>NOTÍCIAS</h2>
+                
+                {% with noticias.0 as noticia %}
+                <div class="bloco-chamada">
+                    <a href="{{ noticia.get_absolute_url }}" title="{{ noticia.titulo }}"><img src="{% thumbnail noticia.imagem 88x68 crop=scale %}" width="88" height="68" alt="{{ noticia.titulo }}" title="{{ noticia.titulo }}" class="imagem" /></a>
+                    <div class="titulo"><a href="{{ noticia.get_absolute_url }}" title="{{ noticia.titulo }}">{{ noticia.titulo }}</a></div>
+                    <br class="clr" />
+                </div>
+                {% endwith %}
+
+                <div class="bloco-chamada-div">&nbsp;</div>
+
+                {% with noticias.1 as noticia %}
+                <div class="bloco-chamada">
+                    <a href="{{ noticia.get_absolute_url }}" title="{{ noticia.titulo }}"><img src="{% thumbnail noticia.imagem 88x68 crop=scale %}" width="88" height="68" alt="{{ noticia.titulo }}" title="{{ noticia.titulo }}" class="imagem" /></a>
+                    <div class="titulo"><a href="{{ noticia.get_absolute_url }}" title="{{ noticia.titulo }}">{{ noticia.titulo }}</a></div>
+                    <br class="clr" />
+                </div>
+                {% endwith %}
+
+                <div class="bloco-chamada-div">&nbsp;</div>
+
+                {% with noticias.2 as noticia %}
+                <div class="bloco-chamada">
+                    <a href="{{ noticia.get_absolute_url }}" title="{{ noticia.titulo }}"><img src="{% thumbnail noticia.imagem 88x68 crop=scale %}" width="88" height="68" alt="{{ noticia.titulo }}" title="{{ noticia.titulo }}" class="imagem" /></a>
+                    <div class="titulo"><a href="{{ noticia.get_absolute_url }}" title="{{ noticia.titulo }}">{{ noticia.titulo }}</a></div>
+                    <br class="clr" />
+                </div>
+                {% endwith %}
+
+                <br class="clr" />
+
+                <div class="hr">&nbsp;</div>
+
+                {% with noticias.3 as noticia %}
+                <div class="bloco-chamada">
+                    <a href="{{ noticia.get_absolute_url }}" title="{{ noticia.titulo }}"><img src="{% thumbnail noticia.imagem 88x68 crop=scale %}" width="88" height="68" alt="{{ noticia.titulo }}" title="{{ noticia.titulo }}" class="imagem" /></a>
+                    <div class="titulo"><a href="{{ noticia.get_absolute_url }}" title="{{ noticia.titulo }}">{{ noticia.titulo }}</a></div>
+                    <br class="clr" />
+                </div>
+                {% endwith %}
+
+                <div class="bloco-chamada-div">&nbsp;</div>
+                
+                {% with noticias.4 as noticia %}
+                <div class="bloco-chamada">
+                    <a href="{{ noticia.get_absolute_url }}" title="{{ noticia.titulo }}"><img src="{% thumbnail noticia.imagem 88x68 crop=scale %}" width="88" height="68" alt="{{ noticia.titulo }}" title="{{ noticia.titulo }}" class="imagem" /></a>
+                    <div class="titulo"><a href="{{ noticia.get_absolute_url }}" title="{{ noticia.titulo }}">{{ noticia.titulo }}</a></div>
+                    <br class="clr" />
+                </div>
+                {% endwith %}
+
+                <div class="bloco-chamada-div">&nbsp;</div>
+                
+                {% with noticias.5 as noticia %}
+                <div class="bloco-chamada">
+                    <a href="{{ noticia.get_absolute_url }}" title="{{ noticia.titulo }}"><img src="{% thumbnail noticia.imagem 88x68 crop=scale %}" width="88" height="68" alt="{{ noticia.titulo }}" title="{{ noticia.titulo }}" class="imagem" /></a>
+                    <div class="titulo"><a href="{{ noticia.get_absolute_url }}" title="{{ noticia.titulo }}">{{ noticia.titulo }}</a></div>
+                    <br class="clr" />
+                </div>
+                {% endwith %}
+
+                <br class="clr" />
+
+                <div class="mais"><a href="noticias/" title="Ver mais notícias">Ver mais notícias</a></div>
+
+        </div>
+        <div id="coluna2">
+            <div class="fb-like-box" data-href="https://www.facebook.com/16PBDragoesdoMar" data-width="240" data-colorscheme="light" data-show-faces="true" data-header="false" data-stream="true" data-show-border="false"></div>
+            <!-- 
+            <div id="coluna2-mg">
+              <div class="banner-square"><a href="#" title="Título do Banner"><img src="{% static 'images/fake/square.jpg' %}" width="120" height="90" alt="Título do Banner" title="Título do Banner" /></a></div>
+              <div class="banner-square"><a href="#" title="Título do Banner"><img src="{% static 'images/fake/square.jpg' %}" width="120" height="90" alt="Título do Banner" title="Título do Banner" /></a></div>
+              <div class="banner-square"><a href="#" title="Título do Banner"><img src="{% static 'images/fake/square.jpg' %}" width="120" height="90" alt="Título do Banner" title="Título do Banner" /></a></div>
+            </div>
+             -->
+        </div>
+        <br class="clr" />
+
+        </div>
+    </div>
+    <!-- conteúdo/end -->
+    {% endblock %}
+    
+    {% block js %}
+    <div id="fb-root"></div>
+	<script>(function(d, s, id) {
+	  var js, fjs = d.getElementsByTagName(s)[0];
+	  if (d.getElementById(id)) return;
+	  js = d.createElement(s); js.id = id;
+	  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=245821382207672";
+	  fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));</script>
+	{% endblock%}

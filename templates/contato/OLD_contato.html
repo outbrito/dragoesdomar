@@ -1,0 +1,86 @@
+{% extends 'site/base.html' %}
+
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}site/css/contato.css">
+{% endblock %}
+
+{% block messages %}
+<div class="sucesso lato">
+    <span class="close"></span>
+    <img src="{{ STATIC_URL }}site/images/contato/sucesso.png" alt="Sucesso"/>
+    <h1>Sucesso!</h1>
+    <p>
+        This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem
+    </p>
+    <span class="botao">Eu sou um botão</span>
+</div>
+<div class="erro lato">
+    <span class="close"></span>
+    <img src="{{ STATIC_URL }}site/images/contato/erro.png" alt="Sucesso"/>
+    <h1>Ops...</h1>
+    <p>
+        This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem
+    </p>
+    <span class="botao">Eu sou um botão</span>
+</div>
+{% endblock %}
+
+{% block main %}
+    <h1 class="visually-hidden">Sobre</h1>
+    <section class="sobre center">        
+        <article class="mensagem">
+            <header><h1 class="fale">Fale Conosco</h1></header>
+            <p>
+                This is Photoshop's version  of <a href="#">Lorem Ipsum</a>. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor.<br>
+                Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt auctor a ornare odio
+            </p>
+
+            <h1 class="visually-hidden">Form Contato</h1>
+            <form action="{% url 'contato' %}" method="POST" id="formContato" novalidate class="clearfix form">{% csrf_token %}
+                <div class="form-row">
+                    <label for="nome">Nome <span class="right"></span></label>
+                    <input type="text" id="nome" name="nome"/>
+                </div>
+                <div class="form-row">
+                    <label for="email">Email <span class="right"></span></label>
+                    <input type="email" name="email" id="email"/>
+                </div>
+                <div class="form-row">
+                    <label for="assunto">Assunto <span class="right"></span></label>
+                    <input type="text" name="assunto" id="assunto"/>
+                </div>
+                <div class="form-row">
+                    <label for="mensagem">Mensagem <span class="right"></span></label>
+                    <textarea name="mensagem" id="mensagem" cols="30" rows="10" class="lato"></textarea>
+                </div>
+                <input type="submit" value="Enviar"/>
+            </form>
+        </article>
+        <article class="mensagem">            
+            <header>
+                <h1 class="sac">SAC</h1>                
+            </header>
+            <p>
+                This is Photoshop's version. Proin gravida nibh vel velib auctor aliquet. nosso <a href="#">Facebook</a>,
+                <a href="#">Twitter</a> e <a href="#">Instagram</a> Aenean sollicitudin, lorem quis bibendum auctor.
+                Morbi accusan ipsum velit. Nam nec tellus a odio tincidunt auctor a ornanre odio
+            </p>
+            <ul class="lista-contato clearfix">
+                <li class="endereco"><span>Endereço</span>Exemplo de Preenchimento</li>
+                <li class="telefone"><span>Telefone(s)</span>(83) 5555.5555<br>(83) 5555.5555</li>
+                <li class="email"><span>Email</span>Exemplo de Preenchimento</li>
+                <li class="facebook"><span>Facebook</span>Exemplo de Preenchimento</li>
+                <li class="twitter"><span>Twitter</span>Exemplo de Preenchimento</li>
+                <li class="instagram"><span>Instagram</span>Exemplo de Preenchimento</li>
+                <li class="pinterest"><span>Pinterest</span>Exemplo de Preenchimento</li>
+                <li class="youtube"><span>Youtube</span>Exemplo de Preenchimento</li>
+            </ul>
+        </article>
+    </section>
+{% endblock %}
+
+{% block js %}
+<script src="{{ STATIC_URL }}site/js/jquery.validate.js"></script>
+<script src="{{ STATIC_URL }}site/js/contato.js"></script>
+<script src="{{ STATIC_URL }}site/js/funcbusca.js"></script>
+{% endblock %}

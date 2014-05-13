@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% load static chunks %}
+
+	{% block content %}
+    <!-- conteúdo/begin -->
+    <div id="internas">
+        <div id="conteudo-mg">
+
+            <div id="migalha">
+                <span>Você está em:</span> <a href="index.html" title="Página Inicial" accesskey="H">Página Inicial</a>  Institucional
+                <a name="content">&nbsp;</a>
+            </div>
+
+            <div id="controle">&nbsp;</div>
+            <br class="clr" />
+
+            <div id="coluna1">
+                <div id="coluna1-mg">
+
+                    <div id="submenu">
+                    {% for c in categorias %}
+                    <span class="nivel1">{{ c }}</span>
+ 					{% for a in c.arquivos.all %}
+ 					<a href="{{ a.arquivo.url }}">{{ a }}</a>                   
+                   	{% endfor %}
+                    <div class="hr">&nbsp;</div>
+                    {% endfor %}
+
+                    </div>
+                </div>
+            </div>
+            <div id="coluna2">
+            	{% chunk "historia_do_grupo" %}
+            </div>
+            <div id="coluna3">
+                <div id="coluna3-mg">
+                    <div class="banner-square"><a href="#" title="Título do Banner"><img src="{% static 'images/fake/square.jpg' %}" width="120" height="90" alt="Título do Banner" title="Título do Banner" /></a></div>
+                    <div class="banner-square"><a href="#" title="Título do Banner"><img src="{% static 'images/fake/square.jpg' %}" width="120" height="90" alt="Título do Banner" title="Título do Banner" /></a></div>
+                    <div class="banner-square"><a href="#" title="Título do Banner"><img src="{% static 'images/fake/square.jpg' %}" width="120" height="90" alt="Título do Banner" title="Título do Banner" /></a></div>
+                </div>
+            </div>
+
+            <br class="clr" />
+
+        </div>
+    </div>
+    <!-- conteúdo/end -->
+    {% endblock %}

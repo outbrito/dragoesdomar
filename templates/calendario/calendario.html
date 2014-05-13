@@ -1,0 +1,109 @@
+{% extends "base.html" %}
+{% load static bootstrap_calendar %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'bootstrap-calendar/css/calendar.min.css' %}">
+
+<style>
+.event.evento-mundial {
+	background-color: #5c328a;
+	color: #fff;
+}
+.event.evento-nacional {
+	background-color:#004289;
+	color: #fff;
+}
+.event.evento-regional {
+	background-color:#ff0000;
+	border-color: #000;
+	color: #000;
+}
+.event.evento-grupo {
+	background-color:#fff;
+	border-color: #ff0000;
+	color: #004289;
+}
+</style>
+{% endblock %}
+
+	{% block content %}
+    <!-- conteúdo/begin -->
+    <div id="chamadas">
+        <div id="conteudo-mg">
+
+            <div id="controle">&nbsp;</div>
+            <br class="clr" />
+
+
+            <div id="conteudo">
+            	<h3>Calendário do Grupo</h3>
+            	<h5 class="text-center"></h5>
+            	<div id="calendar"></div>
+            	<div class="row-fluid pull-right" style="margin-top:5px;">
+				    <div class="btn-group">
+				        <button class="btn btn-primary" data-calendar-nav="prev"> << Anterior </button>
+				        <button class="btn" data-calendar-nav="today"> Hoje </button>
+				        <button class="btn btn-primary" data-calendar-nav="next"> Próximo >> </button>
+				    </div>
+				    <div id="calendar_controls" class="btn-group">
+				        <button class="btn btn-warning" data-calendar-view="year"> Ano </button>
+				        <button class="btn btn-warning" data-calendar-view="month"> Mês </button>
+				        <button class="btn btn-warning" data-calendar-view="week"> Semana </button>
+				        <button class="btn btn-warning" data-calendar-view="day"> Dia </button>
+				    </div>
+				</div>
+            </div>
+
+            <br class="clr" />
+
+        </div>
+    </div>
+    <!-- conteúdo/end -->
+    {% endblock %}
+    
+{% block js %}
+<!-- Le javascript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="{% static 'bootstrap-calendar/components/underscore/underscore-min.js' %}"></script>
+<script src="{% static 'bootstrap-calendar/js/calendar.min.js' %}"></script>
+
+<script src="{% static 'bootstrap-calendar/js/language/pt-BR.js' %}"></script>
+
+<script>
+    (function($){
+    	"use strict";
+    	var options={
+			events_url:"{% url 'calendar_json' %}",
+    	    view:"month",
+    	    language:"pt-BR",
+    	    tmpl_path:"/static/bootstrap-calendar/tmpls/",
+    	    first_day:1,
+    	    onAfterEventsLoad:function(events){if(!events){return;}},
+    	    onAfterViewLoad: function(view) {
+    			$('#conteudo h5').text(this.getTitle());
+    			$('#calendar_controls button').removeClass('active');
+    			$('button[data-calendar-view="' + view + '"]').addClass('active');
+    		},
+    	    classes:{months:{general:'label'}}
+		};
+    	
+    	var calendar=$('#calendar').calendar(options);
+    	
+    	$('.btn-group button[data-calendar-nav]').each(function(){
+    		var $this=$(this);
+    		$this.click(function(){
+    			calendar.navigate($this.data('calendar-nav'));
+    		});
+    	})
+    	
+    	;$('.btn-group button[data-calendar-view]').each(function(){
+    		var $this=$(this);
+    		$this.click(function(){
+    			calendar.view($this.data('calendar-view'));
+    		});
+    	});
+    }(jQuery));
+</script>
+
+{% endblock %}

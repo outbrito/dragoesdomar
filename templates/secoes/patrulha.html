@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% load static thumbnail %}
+
+	{% block content %}
+    <!-- conteúdo/begin -->
+    <div id="internas">
+        <div id="conteudo-mg">
+
+            <div id="migalha">
+                <span>Você está em:</span> Seções > <a href="{{ patrulha.secao.get_absolute_url }}" title="{{ patrulha.secao }}">{{ patrulha.secao }}</a> > {{ patrulha }}
+                <a name="content">&nbsp;</a>
+            </div>
+
+            <div id="controle">&nbsp;</div>
+            <br class="clr" />
+
+            <div id="coluna1">
+                <div id="coluna1-mg">
+
+                    <div id="submenu">
+                    
+                    <span class="nivel1">Arquivos</span>
+ 					{% for a in patrulha.arquivos.all %}
+ 					<a href="{{ a.arquivo.url }}">{{ a }}</a>                   
+                   	{% endfor %}
+                    <div class="hr">&nbsp;</div>
+
+                    </div>
+                </div>
+            </div>
+            
+            <div id="coluna2">
+
+              <h3>{{ patrulha }}</h3>
+              <img src="{% thumbnail secao.imagem 287x170 crop=scale %}" width="287" height="170" alt="Descrição da Foto" title="Descrição da Foto" class="imagens" />
+              {{ secao.descricao|safe }}
+              <br class="clr" />
+              
+            </div>
+            
+            <div id="coluna3">
+                <div id="coluna3-mg">
+                	<span class="nivel1">Fotos</span>
+                	{% for foto in patrulha.fotos.all %}
+                    <div class="banner-square"><a href="#" title="{{ foto }}"><img src="{% thumbnail foto.foto 120x90 crop=upscale %}" width="120" height="90" alt="{{ pt }}" title="{{ pt }}" /></a></div>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <br class="clr" />
+
+        </div>
+    </div>
+    <!-- conteúdo/end -->
+    {% endblock %}

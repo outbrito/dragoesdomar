@@ -1,0 +1,124 @@
+{% load static %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pt-br" lang="pt-br">
+
+<head>
+  <title>16ºPB Grupo Escoteiro Dragões do Mar</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="author" content="Escoteiros do Brasil - Comissão Nacional de Imagem e Comunicação" />
+  <meta name="copyright" content="Escoteiros do Brasil" />
+  <meta name="keywords" content="Escoteiro, Escoteiros, Monitor, Monitores, Escotismo, Criança, Crianças, Jovem, Jovens, Juventude, Movimento Juvenil, Protagonismo Juvenil, Envolvimento juvenil, Adolescentes, Garotas e Garotos, Mulher e Homem, Voluntários, Voluntários no Escotismo, Perfil do Escotismo Brasileiro, Escotismo Brasileiro, Paz, Presentes para Paz, Escoteiros do Brasil, Organização Mundial do Movimento Escoteiro, Dragões do Mar, Paraíba, 16ºPB" />
+  <meta name="title" content="16ºPB Grupo Escoteiro Dragões do Mar" />
+  <meta name="description" content="Site oficial do 16ºPB Grupo Escoteiro Dragões do Mar" />
+
+  <link rel="Shortcut icon" href="{% static 'images/favicon.ico' %}" type="image/x-icon" />
+  <link rel="stylesheet" href="{% static 'bootstrap-calendar/components/bootstrap2/css/bootstrap.css' %}">
+  <link rel="stylesheet" href="{% static 'bootstrap-calendar/components/bootstrap2/css/bootstrap-responsive.css' %}">
+  <link rel="stylesheet" href="{% static 'css/default.css' %}" type="text/css" />
+  {% block css %}
+  {% endblock %}
+
+  <script language="JavaScript" type="text/javascript" src="{% static 'js/jquery.js' %}"></script>
+  <script language="JavaScript" type="text/javascript" src="{% static 'js/jquery.cookie.js' %}"></script>
+  <script language="JavaScript" type="text/javascript" src="{% static 'js/functions.js' %}"></script>
+  <script language="JavaScript" type="text/javascript" src="{% static 'bootstrap-calendar/components/bootstrap2/js/bootstrap.min.js' %}"></script>
+  
+</head>
+
+<body>
+
+<!-- atalhos/begin -->
+<div id="acesso-rapido">
+  <div id="acesso-rapido-mg">
+  <a href="http://sigue.escoteiros.org.br/siguejovem/" title="SIGUE Jovem" class="external">SIGUE Jovem</a> |
+  <a href="http://sigue.escoteiros.org.br/sigue/" title="SIGUE Administrativo" class="external">SIGUE Administrativo</a> |
+  <a href="http://dragoesdomar.org/webmail/" title="Webmail" class="external">Webmail</a> |
+  <a href="http://www.dragoesdomar.org/ambientevirtual/" title="Ambiente Virtual de Aprendizagem" class="external">Ambiente Virtual de Aprendizagem</a>
+  </div>
+</div>
+<!-- atalhos/end -->
+
+<div id="layout">
+
+    <!-- cabeçalho/begin -->
+    <div id="topo">
+    	{% comment %}
+        <div id="logo"><a href="{% url 'home' %}" title="Voltar a página inicial do dragoesdomar.org" accesskey="H"><img src="{% static 'images/dragoes_do_mar_banner.png' %}" style="width:150px !important;height:90px !important;" alt="Escoteiros do Brasil" title="Escoteiros do Brasil" /></a><h1>Escoteiros do Brasil</h1></div>
+        {% endcomment %}
+        <div id="logo"><a href="{% url 'home' %}" title="Voltar a página inicial do dragoesdomar.org" accesskey="H"><img src="{% static 'images/dragoes_do_mar_banner.png' %}" style="width:180px !important;height:160px !important;" alt="Escoteiros do Brasil" title="Escoteiros do Brasil" /></a><h1>Escoteiros do Brasil</h1></div>
+        <div id="busca"></div>
+        <br class="clr" />
+    </div>
+    <!-- cabeçalho/end -->
+
+    <!-- navegação/begin -->
+	<div class="navbar" style="margin-left:220px;">
+	  <div class="navbar-inner">
+	    <ul class="nav">
+	    	<li><a href="{% url 'grupo' %}" title="O Grupo" accesskey="G">O <span class="atalho">G</span>rupo</a></li>
+	        <li><a href="{% url 'noticias' %}" title="Notícias" accesskey="N"><span class="atalho">N</span>otícias</a></li>
+	        <li><a href="{% url 'calendario' %}" title="Agenda" accesskey="A">C<span class="atalho">a</span>lendário</a></li>
+	        <li class="dropdown"><a href="#" title="Agenda" accesskey="A" role="button" class="dropdown-toggle" data-toggle="dropdown"><span class="atalho">S</span>eções <b class="caret"></b></a>
+	        	<ul class="dropdown-menu">
+	           		{% for s in secoes %}
+	           		<li class="dropdown-submenu">
+	           			<a href="{% url 'secao' slug=s.slug %}" title="{{ s }}">{{ s }}</a>
+	           			{% with s.patrulhas.all as patrulhas %}
+	           			<ul class="dropdown-menu">
+	           				{% for pt in patrulhas %}
+	           				<li><a href="{% url 'patrulha' slug_secao=s.slug slug=pt.slug %}" title="{{ pt }}">{{ pt}}</a></li>
+	           				{% endfor %}
+	           			</ul>
+	           			{% endwith %}
+	           		</li>
+	           		{% endfor %}
+	           	</ul>
+	        </li>
+	        <li class="ultimo"><a href="{% url 'contato' %}" title="Contato" accesskey="C"><span class="atalho">C</span>ontato</a></li>
+	        {% comment %}
+	        <li><a href="noticias.html" title="Blogs" accesskey="B"><span class="atalho">B</span>logs</a></li>
+	        {% endcomment %}
+	    </ul>
+	  </div>
+	</div>
+    <!-- navegação/end -->
+	
+	{% block content %}
+    {% endblock %}
+
+    <!-- rodapé/begin -->
+    <div id="rodape">
+        <address>
+        <span>16º PB Grupo Escoteiro Dragões do Mar</span><br />
+        Rua Maria Caetano Fernandes de Lima, 488 - Tambauzinho<br />
+        CEP 58042-050 - João Pessoa - Paraíba - Brasil<br />
+        (83) 0000-0000
+        </address>
+        <div id="links">
+        <ul>
+        	{% comment %}
+            <li><a href="institucional.html" title="Institucional" accesskey="I"><span class="atalho">I</span>nstitucional</a></li>
+            <li><a href="escotismo.html" title="Downloads" accesskey="E"><span class="atalho">E</span>scotismo</a></li>
+            <li><a href="downloads.html" title="Downloads" accesskey="D"><span class="atalho">D</span>ownloads</a></li>
+            <li><a href="agenda.html" title="Agenda" accesskey="A"><span class="atalho">A</span>genda</a></li>
+            <li><a href="noticias.html" title="Notícias" accesskey="N"><span class="atalho">N</span>otícias</a></li>
+            <li><a href="grupos_escoteiros.html" title="Escotismo" accesskey="G"><span class="atalho">G</span>rupos Escoteiros</a></li>
+            <li class="ultimo"><a href="registro.html" title="Registro" accesskey="R"><span class="atalho">R</span>egistro</a></li>
+            {% endcomment %}
+        </ul>
+        <br class="clr" />
+        </div>
+        <div id="esc_br"><a href="http://escoteiros.org" title="Escoteiros do Brasil" class="external"><img src="{% static 'images/escoteiros_do_brasil-1.png' %}" width="287" height="69" alt="Escoteiros do Brasil" title="Escoteiros do Brasil" /></a></div>
+        <!-- <div id="wosm"><a href="http://www.scout.org" title="Organização Mundial do Movimento Escoteiro" class="external"><img src="{% static 'images/scouts.gif' %}" width="137" height="40" alt="Organização Mundial do Movimento Escoteiro" title="Organização Mundial do Movimento Escoteiro" /></a></div> -->
+        <br class="clr" />
+    </div>
+    <!-- rodapé/end -->
+</div>
+
+{% block js %}
+{% endblock %}
+
+</body>
+</html>
