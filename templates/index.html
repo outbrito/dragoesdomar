@@ -12,10 +12,10 @@
                 {% with destaques.0 as destaque %}
                 <div class="chamadas-box-botao-ativo">
                     <div class="chamadas-box-link">
-                        <a href="{% thumbnail destaque.imagem 758x254 crop=smart %}" rel="{{ destaque.get_absolute_url }}" title="{{ destaque.titulo }}">{{ destaque.titulo }}</a>
+                        <a href="{{ destaque.get_absolute_url }}" rel="{% thumbnail destaque.imagem 758x254 crop=smart %}" title="{{ destaque.titulo }}">{{ destaque.titulo }}</a>
                     </div>
                     <div class="chamadas-box-img">
-                        <a href="{% thumbnail destaque.imagem 758x254 crop=smart %}" rel="{{ destaque.get_absolute_url }}" title="{{ destaque.titulo }}"><img src="{% thumbnail destaque.imagem 60x40 crop=scale %}" width="60" height="40" alt="{{ destaque.titulo }}" title="{{ destaque.titulo }}" /></a>
+                        <a href="{{ destaque.get_absolute_url }}" rel="{% thumbnail destaque.imagem 758x254 crop=smart %}" title="{{ destaque.titulo }}"><img src="{% thumbnail destaque.imagem 60x40 crop=scale %}" width="60" height="40" alt="{{ destaque.titulo }}" title="{{ destaque.titulo }}" /></a>
                     </div>
                     <br class="clr" />
                 </div>
@@ -23,10 +23,10 @@
                 {% with destaques.1 as destaque %}
                 <div class="chamadas-box-botao">
                     <div class="chamadas-box-link">
-                        <a href="{% thumbnail destaque.imagem 758x254 crop=smart %}" rel="{{ destaque.get_absolute_url }}" title="{{ destaque.titulo }}">{{ destaque.titulo }}</a>
+                        <a href="{{ destaque.get_absolute_url }}" rel="{% thumbnail destaque.imagem 758x254 crop=smart %}" title="{{ destaque.titulo }}">{{ destaque.titulo }}</a>
                     </div>
                     <div class="chamadas-box-img">
-                        <a href="{% thumbnail destaque.imagem 758x254 crop=smart %}" rel="{{ destaque.get_absolute_url }}" title="{{ destaque.titulo }}"><img src="{% thumbnail destaque.imagem 60x40 crop=scale %}" width="60" height="40" alt="{{ destaque.titulo }}" title="{{ destaque.titulo }}" /></a>
+                        <a href="{{ destaque.get_absolute_url }}" rel="" title="{{ destaque.titulo }}"><img src="{% thumbnail destaque.imagem 60x40 crop=scale %}" width="60" height="40" alt="{{ destaque.titulo }}" title="{{ destaque.titulo }}" /></a>
                     </div>
                     <br class="clr" />
                 </div>
